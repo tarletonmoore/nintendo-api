@@ -5,4 +5,8 @@ Rails.application.routes.draw do
   # root "articles#index"
   post "/users" => "users#create"
   post "/sessions" => "sessions#create"
+
+  get "/consoles/:id" => "consoles#show"
+  get "/consoles" => "consoles#index"
+  post "/consoles" => "consoles#create"
 end
