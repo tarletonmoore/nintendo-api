@@ -4,3 +4,4 @@ json.id game.id
 json.title game.title
 json.image game.image
 json.console_id game.console_id
+json.console game.console
