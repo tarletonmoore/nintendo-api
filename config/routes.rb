@@ -9,4 +9,8 @@ Rails.application.routes.draw do
   get "/consoles/:id" => "consoles#show"
   get "/consoles" => "consoles#index"
   post "/consoles" => "consoles#create"
+
+  get "/games" => "games#index"
+  get "/games/:id" => "games#show"
+  post "/games" => "games#create"
 end

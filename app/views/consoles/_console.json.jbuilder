@@ -4,3 +4,4 @@ json.id console.id
 json.name console.name
 json.image console.image
 json.year console.year
+json.games console.games
