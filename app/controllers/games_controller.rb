@@ -14,6 +14,7 @@ class GamesController < ApplicationController
       @game = Game.create!(
         title: params[:title],
         image: params[:image],
+        price: params[:price],
         console_id: params[:console_id],
       )
       render :show
