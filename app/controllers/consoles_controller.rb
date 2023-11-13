@@ -10,11 +10,15 @@ class ConsolesController < ApplicationController
   end
 
   def create
-    @console = Console.create!(
-      name: params[:name],
-      image: params[:image],
-      year: params[:year],
-    )
-    render :show
+    if current_user.admin
+      @console = Console.create!(
+        name: params[:name],
+        image: params[:image],
+        year: params[:year],
+      )
+      render :show
+    else
+      render json: { error: "Unauthorized" }, status: :unauthorized
+    end
   end
 end

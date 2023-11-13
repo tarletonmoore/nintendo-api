@@ -10,11 +10,15 @@ class GamesController < ApplicationController
   end
 
   def create
-    @game = Game.create!(
-      title: params[:title],
-      image: params[:image],
-      console_id: params[:console_id],
-    )
-    render :show
+    if current_user.admin
+      @game = Game.create!(
+        title: params[:title],
+        image: params[:image],
+        console_id: params[:console_id],
+      )
+      render :show
+    else
+      render json: { error: "Unauthorized" }, status: :unauthorized
+    end
   end
 end
