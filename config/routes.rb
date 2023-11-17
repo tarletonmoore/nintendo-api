@@ -14,4 +14,12 @@ Rails.application.routes.draw do
   get "/games" => "games#index"
   get "/games/:id" => "games#show"
   post "/games" => "games#create"
+
+  post "/orders" => "orders#create"
+  get "/orders" => "orders#index"
+  get "/orders/:id" => "orders#show"
+
+  get "/carted_games" => "carted_games#index"
+  post "/carted_games" => "carted_games#create"
+  delete "/carted_games/:id" => "carted_games#destroy"
 end
