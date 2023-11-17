@@ -1,0 +1,2 @@
+class CartedGamesController < ApplicationController
+end
