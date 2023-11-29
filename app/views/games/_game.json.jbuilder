@@ -6,3 +6,4 @@ json.image game.image
 json.console_id game.console_id
 json.console game.console
 json.price game.price
+json.reviews game.reviews
