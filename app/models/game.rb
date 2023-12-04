@@ -8,4 +8,5 @@ class Game < ApplicationRecord
   has_many :orders, through: :carted_games
   has_many :users, through: :carted_games
   has_many :reviews
+  has_many :favorites
 end

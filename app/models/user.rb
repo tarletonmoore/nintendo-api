@@ -6,4 +6,6 @@ class User < ApplicationRecord
   has_many :games, through: :carted_games
   has_many :orders, through: :carted_games
   has_many :reviews
+  has_many :favorites
+  has_many :games, through: :favorites
 end
