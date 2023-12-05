@@ -26,4 +26,8 @@ Rails.application.routes.draw do
   post "/reviews" => "reviews#create"
   patch "/reviews/:id" => "reviews#update"
   delete "/reviews/:id" => "reviews#destroy"
+
+  get "/favorites" => "favorites#index"
+  post "/favorites" => "favorites#create"
+  delete "/favorites/:id" => "favorites#destroy"
 end
