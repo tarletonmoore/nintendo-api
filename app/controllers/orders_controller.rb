@@ -30,13 +30,18 @@ class OrdersController < ApplicationController
       subtotal: calculated_subtotal,
       tax: calculated_tax,
       total: calculated_total,
-
     )
+
     if @order.valid?
       @carted_games.each do |carted_game|
         carted_game.status = "purchased"
         carted_game.order_id = @order.id
         carted_game.save
+
+        # Deduct the purchased quantity from the game's stock
+        game = carted_game.game
+        game.stock -= carted_game.quantity
+        game.save
       end
       render :show
     else

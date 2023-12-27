@@ -6,6 +6,7 @@ json.image game.image
 json.console_id game.console_id
 json.console game.console
 json.price game.price
+json.stock game.stock
 json.reviews game.reviews do |review|
   json.id review.id
   json.game_id review.game_id
