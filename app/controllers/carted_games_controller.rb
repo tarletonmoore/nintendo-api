@@ -20,4 +20,11 @@ class CartedGamesController < ApplicationController
     @carted_game.save
     render json: { message: "you removed item" }
   end
+
+  def update
+    @carted_game = CartedGame.find_by(id: params[:id])
+    @carted_game.quantity = params[:quantity]
+
+    @carted_game.save
+  end
 end
