@@ -16,15 +16,22 @@ class CartedGamesController < ApplicationController
 
   def destroy
     @carted_game = CartedGame.find_by(id: params[:id])
-    @carted_game.status = "removed"
-    @carted_game.save
-    render json: { message: "you removed item" }
+    if @carted_game.user_id == current_user.id
+      @carted_game.status = "removed"
+      @carted_game.save
+      render json: { message: "you removed item" }
+    else
+      render json: { error: "Unauthorized access" }, status: :unauthorized
+    end
   end
 
   def update
     @carted_game = CartedGame.find_by(id: params[:id])
-    @carted_game.quantity = params[:quantity]
-
-    @carted_game.save
+    if @carted_game.user_id == current_user.id
+      @carted_game.quantity = params[:quantity]
+      @carted_game.save
+    else
+      render json: { error: "Unauthorized access" }, status: :unauthorized
+    end
   end
 end
