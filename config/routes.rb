@@ -24,6 +24,9 @@ Rails.application.routes.draw do
   post "/carted_games" => "carted_games#create"
   patch "/carted_games/:id" => "carted_games#update"
   delete "/carted_games/:id" => "carted_games#destroy"
+  get "savedindex" => "carted_games#savedindex"
+  patch "/saveforlater/:id" => "carted_games#saveforlater"
+  delete "destroysaved/:id" => "carted_games#destroysaved"
 
   post "/reviews" => "reviews#create"
   patch "/reviews/:id" => "reviews#update"
