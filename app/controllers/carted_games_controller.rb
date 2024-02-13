@@ -64,4 +64,15 @@ class CartedGamesController < ApplicationController
       render json: { error: "Unauthorized access" }, status: :unauthorized
     end
   end
+
+  def add_back_to_cart
+    @carted_game = CartedGame.find_by(id: params[:id])
+    if @carted_game.user_id == current_user.id
+      @carted_game.status = "carted"
+      @carted_game.quantity = 1
+      @carted_game.save
+    else
+      render json: { error: "Unauthorized access" }, status: :unauthorized
+    end
+  end
 end

@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   get "savedindex" => "carted_games#savedindex"
   patch "/saveforlater/:id" => "carted_games#saveforlater"
   delete "destroysaved/:id" => "carted_games#destroysaved"
+  patch "/add_back_to_cart/:id" => "carted_games#add_back_to_cart"
 
   post "/reviews" => "reviews#create"
   patch "/reviews/:id" => "reviews#update"
